@@ -88,13 +88,13 @@ def get_agent_executor():
         prompt = PromptTemplate.from_template(template)
 
     llm = ChatGroq(
-        model="groq/compound-mini",
+        model="openai/gpt-oss-120b",
         api_key=groq_api_key,
-        max_tokens=500
+        max_tokens=1000
     )
 
     agent = create_react_agent(tools=tools, prompt=prompt, llm=llm)
-    return AgentExecutor(agent=agent, tools=tools, verbose=False)
+    return AgentExecutor(agent=agent, tools=tools, handle_parsing_errors=True, verbose=False)
 
 # Validate API keys before proceeding
 if not groq_api_key:
