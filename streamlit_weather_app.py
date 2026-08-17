@@ -88,7 +88,7 @@ def get_agent_executor():
         prompt = PromptTemplate.from_template(template)
 
     llm = ChatGroq(
-        model="llama-3.3-70b-versatile",
+        model="groq/compound-mini",
         api_key=groq_api_key,
         max_tokens=500
     )
